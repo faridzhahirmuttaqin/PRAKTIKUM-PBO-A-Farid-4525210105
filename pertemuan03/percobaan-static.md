@@ -1,7 +1,5 @@
 # Percobaan Static
 
-Berikut adalah 3 percobaan static pada program `RekeningBank` beserta hasil dan pesan kesalahannya.
-
 ## 1. Percobaan static menghitung jumlah rekening
 
 ```java
@@ -63,22 +61,6 @@ try {
 Ditolak: Jumlah penarikan melebihi saldo
 ```
 
-atau
-
-```text
-Ditolak: Jumlah penarikan melebihi batas transaksi
-```
-
 ### Keterangan
 
 Ini adalah pesan kesalahan ketika transaksi penarikan melebihi saldo atau melebihi batas yang ditentukan static.
-
----
-
-## Kesimpulan
-
-Tiga percobaan static di atas menunjukkan bahwa static berguna untuk:
-
-- menghitung jumlah objek yang dibuat,
-- memanggil method tanpa objek,
-- menjaga aturan umum seperti batas saldo dan batas penarikan.
