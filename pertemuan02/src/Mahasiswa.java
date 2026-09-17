@@ -92,7 +92,7 @@ public class Mahasiswa {
 
     public String getNim()  { return nim; }
     public String getNama() { return nama; }
-    public double getNilaiAkhir() { return getNilaiAkhir(); }
+    public double getNilaiAkhir() { return nilaiAkhir(); }
 
     @Override
     public String toString() {
