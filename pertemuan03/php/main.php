@@ -19,4 +19,3 @@ printf('%s  Total beban gaji: Rp%s%s', PHP_EOL, number_format($total, 2, ',', '.
 
 echo PHP_EOL, 'Periksa: Ani (pokok 6.000.000, masa kerja 15 tahun)', PHP_EOL;
 echo '  tunjangan 15 x 2% = 30%, jadi gaji seharusnya Rp7.800.000,00', PHP_EOL;
-5
