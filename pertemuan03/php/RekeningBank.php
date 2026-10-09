@@ -77,7 +77,7 @@ class RekeningBank
     public static function getJumlahRekening(): int
     {
         return self::$jumlahRekening;
-    }
+        }
 
     /** Hitung bunga setahun dari pokok tanpa membaca keadaan objek. */
     public static function bungaSetahun(float $pokok): float

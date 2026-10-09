@@ -1,53 +1,116 @@
-# Praktikum PBO - Pertemuan 06
+# Laporan Praktikum PBO — Pertemuan 06
 
-## Identitas
+## Abstraksi, Interface, Enum, dan Trait
 
-- **Nama:** Farid Zhahir Muttaqin
-- **NPM:** 4525210105
-- **Materi:** Interface, abstract class, enum, dan trait
+### Identitas
 
+- Nama: Farid Zhahir Muttaqin
+- NIM: 4525210105
+- Mata Kuliah: Praktikum Pemrograman Berorientasi Objek
+- Pertemuan: 06
 
-# Penjelasan Konsep
+## Kondisi sebelum perubahan
 
-### Interface
+Program starter Java dan PHP berhasil dikompilasi/dijalankan. Namun, sejumlah
+perilaku penting masih berupa TODO atau nilai default: kendaraan belum bergerak,
+kecepatan masih nol, dan enum belum memiliki label maupun perhitungan biaya.
+Starter Java juga belum menyertakan sepeda dan contoh seluruh varian enum.
 
-`Movable` menetapkan kontrak bagi objek yang dapat bergerak, sedangkan `Fuelable` menetapkan kontrak bagi objek yang dapat diisi bahan bakar. `Mobil` mengimplementasikan kedua interface tersebut. `Sepeda` hanya mengimplementasikan `Movable`, sehingga dapat diproses bersama mobil sebagai objek yang bergerak tetapi tidak dapat diberikan ke `isiPenuh`, yang menerima `Fuelable`.
+### Source Java sebelum perubahan
 
-Pada Java, pemanggilan `isiPenuh(sepeda)` ditolak saat kompilasi karena `Sepeda` bukan `Fuelable`. Di PHP, deklarasi tipe parameter yang sama menghasilkan `TypeError` ketika fungsi dipanggil. Pemisahan kontrak ini mencegah kode memperlakukan semua kendaraan seolah-olah memiliki kemampuan yang sama.
+![Interface Fuelable Java sebelum perubahan](screenshots/Java-Fuelable-sebelum.png)
 
-### Abstract class dan pewarisan
+![Abstract class Kendaraan Java sebelum perubahan](screenshots/Java-Kendaraan-sebelum.png)
 
-`Kendaraan` menyimpan data dan perilaku umum kendaraan, seperti merek, tahun, umur, dan representasi teks. Kelas ini abstrak karena jumlah roda bergantung pada jenis kendaraan. `Mobil` dan `Sepeda` mewarisinya dan memberikan implementasi jumlah roda masing-masing.
+![Program utama Java sebelum perubahan](screenshots/Java-Main-sebelum.png)
 
-Java mengizinkan satu superclass, tetapi beberapa interface. Dengan demikian, implementasi dan state bersama diwariskan dari satu kelas, sedangkan beberapa kemampuan dapat dinyatakan melalui kontrak interface.
+![Kelas Mobil Java sebelum perubahan](screenshots/Java-Mobil-sebelum.png)
 
-### Enum dengan perilaku
+![Interface Movable Java sebelum perubahan](screenshots/Java-Movable-sebelum.png)
 
-`TipeBahanBakar` membatasi pilihan bahan bakar pada Bensin, Solar, dan Listrik. Enum juga menyimpan label dan harga satuan, menghitung biaya pengisian, serta menentukan apakah bahan bakar ramah lingkungan. Pada PHP, enum menggunakan nilai string dan `match` untuk memilih label serta harga.
+![Enum bahan bakar Java sebelum perubahan](screenshots/Java-TipeBahanBakar-sebelum.png)
 
-### Default method dan trait
+### Source PHP sebelum perubahan
 
-Interface Java `Movable` menyediakan default method `ringkasanGerak()` yang membentuk ringkasan dari kecepatan maksimum objek. Implementasi seperti `Mobil` dan `Sepeda` dapat memakai perilaku bawaan tersebut.
+Deklarasi interface, enum, trait, dan kelas PHP berada dalam satu file.
+Screenshot abstraksi dibagi menjadi beberapa bagian untuk memperlihatkan
+keseluruhan source.
 
-PHP menggunakan trait `Loggable` untuk berbagi method log tanpa hubungan pewarisan. Trait tersebut dipakai oleh `Mobil` dan `Pesanan`, walaupun `Pesanan` bukan turunan `Kendaraan`.
+![Abstraksi PHP sebelum perubahan — bagian 1](screenshots/PHP-Abstraksi-sebelum-1.png)
 
-### Validasi bahan bakar
+![Abstraksi PHP sebelum perubahan — bagian 2](screenshots/PHP-Abstraksi-sebelum-2.png)
 
-Pengisian bahan bakar menolak jumlah yang tidak positif atau tidak finite, serta menolak pengisian yang melampaui kapasitas tersisa tangki.
+![Abstraksi PHP sebelum perubahan — bagian 3](screenshots/PHP-Abstraksi-sebelum-3.png)
 
+![Program utama PHP sebelum perubahan](screenshots/PHP-Main-sebelum.png)
 
-## Screenshot Hasil Running
+### Hasil running sebelum perubahan
 
-### Java
+Program dapat berjalan, tetapi hasilnya memperlihatkan method gerak yang belum
+dikerjakan, kecepatan `0 km/jam`, label bahan bakar `?`, dan biaya `Rp0`.
 
-**Hasil running Java** *(tangkapan layar terminal yang dikirim pengguna)*
+![Output Java sebelum perubahan](screenshots/Output-Java-sebelum.png)
 
-![Screenshot hasil running Java](hasil-running-java.png)
+![Output PHP sebelum perubahan](screenshots/Output-PHP-sebelum.png)
 
-### PHP
+## Perubahan yang dilakukan
 
-**Hasil running PHP** *(tangkapan layar terminal yang dikirim pengguna)*
+1. Memisahkan kemampuan bergerak (`Movable`) dari kemampuan mengisi bahan bakar
+   (`Fuelable`). Mobil menerapkan kedua kontrak, sedangkan sepeda hanya
+   menerapkan `Movable`.
+2. Melengkapi abstract class `Kendaraan` sebagai tempat data dan perilaku umum,
+   lalu melengkapi implementasi khusus pada `Mobil` dan `Sepeda`.
+3. Melengkapi enum `TipeBahanBakar` dengan label, harga, biaya pengisian, dan
+   informasi keramahan lingkungan.
+4. Menambahkan default method Java pada `Movable` dan trait PHP `Loggable` yang
+   dipakai oleh `Mobil` serta `Pesanan`.
+5. Menambahkan validasi jumlah pengisian bahan bakar dan batas kapasitas tangki.
+6. Melengkapi program utama agar dapat menampilkan perilaku kendaraan,
+   pengisian mobil, dan perilaku semua nilai enum.
 
-![Screenshot hasil running PHP](hasil-running-php.png)
+### Source Java setelah perubahan
 
-#
+![Interface Fuelable Java setelah perubahan](screenshots/Java-Fuelable-sesudah.png)
+
+![Abstract class Kendaraan Java setelah perubahan](screenshots/Java-Kendaraan-sesudah.png)
+
+![Program utama Java setelah perubahan](screenshots/Java-Main-sesudah.png)
+
+![Kelas Mobil Java setelah perubahan](screenshots/Java-Mobil-sesudah.png)
+
+![Interface Movable Java setelah perubahan](screenshots/Java-Movable-sesudah.png)
+
+![Kelas Sepeda Java setelah perubahan](screenshots/Java-Sepeda-sesudah.png)
+
+![Enum bahan bakar Java setelah perubahan](screenshots/Java-TipeBahanBakar-sesudah.png)
+
+### Source PHP setelah perubahan
+
+![Abstraksi PHP setelah perubahan — bagian 1](screenshots/PHP-Abstraksi-sesudah-1.png)
+
+![Abstraksi PHP setelah perubahan — bagian 2](screenshots/PHP-Abstraksi-sesudah-2.png)
+
+![Abstraksi PHP setelah perubahan — bagian 3](screenshots/PHP-Abstraksi-sesudah-3.png)
+
+![Abstraksi PHP setelah perubahan — bagian 4](screenshots/PHP-Abstraksi-sesudah-4.png)
+
+![Program utama PHP setelah perubahan](screenshots/PHP-Main-sesudah.png)
+
+### Hasil running setelah perubahan
+
+Mobil dan sepeda menampilkan perilaku gerak serta kecepatan masing-masing.
+Pengisian penuh mobil 45 satuan bensin menghasilkan biaya `Rp540.000`, dan
+enum menampilkan perhitungan untuk bensin, solar, serta listrik. PHP juga
+menunjukkan trait yang digunakan oleh dua kelas yang tidak sekerabat;
+timestamp pada baris log berubah setiap kali program dijalankan.
+
+![Output Java setelah perubahan](screenshots/Output-Java-sesudah.png)
+
+![Output PHP setelah perubahan](screenshots/Output-PHP-sesudah.png)
+
+## Catatan pengujian kontrak
+
+Pemanggilan `isiPenuh(sepeda)` sengaja tidak diaktifkan pada contoh utama,
+karena `Sepeda` bukan `Fuelable`. Java menolaknya saat kompilasi, sementara
+PHP menghasilkan `TypeError` saat pemanggilan. Rincian uji dicatat di
+[keputusan.md](keputusan.md).
