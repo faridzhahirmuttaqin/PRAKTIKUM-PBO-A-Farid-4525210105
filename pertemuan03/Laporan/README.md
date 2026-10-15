@@ -1,133 +1,167 @@
-# Laporan Praktikum PBO — Pertemuan 03
+# LAPORAN PRAKTIKUM PEMROGRAMAN BERBASIS OBJEK
 
-## Constructor Berdelegasi, Anggota Statis, dan Konstanta
+| Informasi Praktikan | Keterangan |
+|---|---|
+| **Nama** | Farid Zhahir Muttaqin |
+| **NPM** | 4525210105 |
+| **Kelas** | A |
+| **Mata Kuliah** | Praktikum Pemrograman Berorientasi Objek (PBO) |
+| **Pertemuan** | 03 — Constructor Berdelegasi, Anggota Statis, dan Konstanta |
+| **Tanggal** | Tidak dicantumkan |
 
-### Identitas
+---
 
-- Nama: Farid
-- NIM: 4525210105
-- Mata Kuliah: Praktikum Pemrograman Berorientasi Objek
-- Pertemuan: 03
+## Java — `RekeningBank.java`
 
-### Tujuan
+**Penjelasan Kode:**
 
-Pertemuan ini membahas constructor berdelegasi, anggota `static`, dan konstanta
-melalui program rekening bank. Program juga menunjukkan validasi rekening,
-transaksi setoran dan penarikan, jumlah rekening yang dibuat, serta perhitungan
-bunga.
+> **Before:** kelas rekening masih memiliki TODO. Constructor ringkas belum
+> mendelegasikan proses pembuatan objek, jumlah rekening dan transaksi belum
+> dihitung dengan benar, dan bunga masih bernilai nol.
+>
+> **After:** konstanta menyimpan bunga tahunan, biaya administrasi, dan batas
+> penarikan. Anggota statis menghitung jumlah rekening, constructor ringkas
+> mendelegasikan ke constructor lengkap, dan validasi melindungi identitas,
+> saldo, setoran, serta penarikan. Perhitungan bunga dan biaya administrasi
+> juga dilengkapi.
 
-### Kondisi sebelum perubahan
+**Bukti Eksekusi (Screenshot):**
 
-Implementasi `RekeningBank` masih memiliki TODO. Constructor ringkas Java
-belum mendelegasikan proses pembuatan objek; jumlah rekening, transaksi,
-biaya administrasi, dan perhitungan bunga juga belum berfungsi.
+- **Before** _(source awal)_:
 
-#### Source Java sebelum perubahan
+  ![RekeningBank.java sebelum perubahan — bagian 1](screenshots/Java-RekeningBank-sebelum-1.png)
 
-![Java RekeningBank sebelum perubahan — bagian 1](screenshots/Java-RekeningBank-sebelum-1.png)
+  ![RekeningBank.java sebelum perubahan — bagian 2](screenshots/Java-RekeningBank-sebelum-2.png)
 
-![Java RekeningBank sebelum perubahan — bagian 2](screenshots/Java-RekeningBank-sebelum-2.png)
+  ![RekeningBank.java sebelum perubahan — bagian 3](screenshots/Java-RekeningBank-sebelum-3.png)
 
-![Java RekeningBank sebelum perubahan — bagian 3](screenshots/Java-RekeningBank-sebelum-3.png)
+- **After** _(source setelah perubahan)_:
 
-#### Source PHP sebelum perubahan
+  ![RekeningBank.java sesudah perubahan — bagian 1](screenshots/Java-RekeningBank-sesudah-1.png)
 
-![PHP RekeningBank sebelum perubahan — bagian 1](screenshots/PHP-RekeningBank-sebelum-1.png)
+  ![RekeningBank.java sesudah perubahan — bagian 2](screenshots/Java-RekeningBank-sesudah-2.png)
 
-![PHP RekeningBank sebelum perubahan — bagian 2](screenshots/PHP-RekeningBank-sebelum-2.png)
+  ![RekeningBank.java sesudah perubahan — bagian 3](screenshots/Java-RekeningBank-sesudah-3.png)
 
-#### Hasil running Java sebelum perubahan
+---
 
-Pengujian memakai `Main.java` aktual dari `pertemuan03/java`. Program itu
-menampilkan daftar gaji pegawai dan operasi rekening. Untuk hasil sebelum,
-hanya kelas `RekeningBank` yang menggunakan versi original; kelas-kelas
-pegawai dipakai sebagai dependensi program utama.
+## PHP — `RekeningBank.php`
 
-Hasilnya, jumlah rekening bernilai `-1`, setoran tidak mengubah saldo,
-penarikan tidak ditolak, dan bunga masih `Rp0,00`.
+**Penjelasan Kode:**
 
-![Output Java sebelum perubahan](screenshots/Output-Java-sebelum.png)
+> **Before:** named constructor `rekeningPelajar()` belum dikerjakan dan
+> pengujian awal berhenti dengan pesan TODO.
+>
+> **After:** named constructor rekening pelajar, konstanta, dan aturan
+> transaksi dilengkapi agar implementasi PHP menerapkan perilaku rekening
+> yang sama: rekening terhitung, transaksi divalidasi, dan bunga dapat
+> dihitung.
 
-#### Hasil running PHP sebelum perubahan
+**Bukti Eksekusi (Screenshot):**
 
-Driver rekening PHP dari folder original menunjukkan bahwa
-`rekeningPelajar()` masih melemparkan pesan `TODO 5 belum dikerjakan`.
+- **Before** _(source awal)_:
 
-![Output PHP RekeningBank sebelum perubahan](screenshots/Output-PHP-sebelum.png)
+  ![RekeningBank.php sebelum perubahan — bagian 1](screenshots/PHP-RekeningBank-sebelum-1.png)
 
-### Perubahan yang dilakukan
+  ![RekeningBank.php sebelum perubahan — bagian 2](screenshots/PHP-RekeningBank-sebelum-2.png)
 
-Implementasi kelas `RekeningBank` dilengkapi dengan:
+- **After** _(source setelah perubahan)_:
 
-1. Konstanta untuk bunga tahunan, biaya administrasi, dan batas penarikan.
-2. Anggota statis untuk menghitung jumlah rekening yang dibuat.
-3. Delegasi constructor ringkas Java ke constructor lengkap.
-4. Validasi nomor rekening, pemilik, saldo awal, dan nilai transaksi.
-5. Operasi setoran, penarikan, dan pemotongan biaya administrasi.
-6. Perhitungan bunga tahunan dan named constructor `rekeningPelajar()` PHP.
+  ![RekeningBank.php sesudah perubahan — bagian 1](screenshots/PHP-RekeningBank-sesudah-1.png)
 
-#### Source Java setelah perubahan
+  ![RekeningBank.php sesudah perubahan — bagian 2](screenshots/PHP-RekeningBank-sesudah-2.png)
 
-![Java RekeningBank setelah perubahan — bagian 1](screenshots/Java-RekeningBank-sesudah-1.png)
+  ![RekeningBank.php sesudah perubahan — bagian 3](screenshots/PHP-RekeningBank-sesudah-3.png)
 
-![Java RekeningBank setelah perubahan — bagian 2](screenshots/Java-RekeningBank-sesudah-2.png)
+**Output Pengujian RekeningBank PHP:**
 
-![Java RekeningBank setelah perubahan — bagian 3](screenshots/Java-RekeningBank-sesudah-3.png)
+- **Before**:
 
-#### Source PHP setelah perubahan
+  ![Output PHP RekeningBank sebelum perubahan](screenshots/Output-PHP-sebelum.png)
 
-![PHP RekeningBank setelah perubahan — bagian 1](screenshots/PHP-RekeningBank-sesudah-1.png)
+- **After**:
 
-![PHP RekeningBank setelah perubahan — bagian 2](screenshots/PHP-RekeningBank-sesudah-2.png)
+  ![Output PHP RekeningBank setelah perubahan](screenshots/Output-PHP-sesudah.png)
 
-![PHP RekeningBank setelah perubahan — bagian 3](screenshots/PHP-RekeningBank-sesudah-3.png)
+---
 
-### Program utama pertemuan 03
+## Java — `Main.java`
 
-Screenshot berikut menggunakan `Main.java` aktual di folder
-`pertemuan03/java`. File ini menampilkan daftar gaji pegawai **dan** operasi
-rekening bank, sesuai program yang digunakan untuk hasil running Java.
+**Penjelasan Kode:**
 
-![Main.java pertemuan 03 — bagian 1](screenshots/Java-Main-program-1.png)
+> `Main.java` yang digunakan adalah program utama aktual dari
+> `pertemuan03/java`. Selain rekening, program tersebut menampilkan daftar
+> gaji pegawai. Pada uji Before, kelas `RekeningBank` memakai source awal,
+> sedangkan kelas pegawai digunakan sebagai dependensi program utama.
 
-![Main.java pertemuan 03 — bagian 2](screenshots/Java-Main-program-2.png)
+**Bukti Eksekusi (Screenshot):**
 
-`pertemuan03/php/main.php` yang tersedia saat ini berisi pengujian daftar gaji
-pegawai saja; file tersebut belum menjalankan operasi rekening.
+- **Program utama**:
 
-![main.php pertemuan 03](screenshots/PHP-Main-program.png)
+  ![Main.java pertemuan 03 — bagian 1](screenshots/Java-Main-program-1.png)
 
-### Hasil running setelah perubahan
+  ![Main.java pertemuan 03 — bagian 2](screenshots/Java-Main-program-2.png)
 
-#### Java
+**Output Program:**
 
-Program utama menampilkan daftar gaji dengan total `Rp27.700.000,00`.
-Pada bagian rekening, jumlah tercatat `3`, setoran menaikkan saldo Ani menjadi
-`Rp1.500.000,00`, penarikan tidak valid ditolak, dan bunga tahunan menghasilkan
-`Rp37.500,00`.
+- **Before:** jumlah rekening `-1`, setoran tidak memperbarui saldo, dan
+  bunga masih `Rp0,00`.
 
-![Output Java setelah perubahan](screenshots/Output-Java-sesudah.png)
+  ![Output Java sebelum perubahan](screenshots/Output-Java-sebelum.png)
 
-#### PHP
+- **After:** jumlah rekening tercatat `3`, setoran menaikkan saldo Ani menjadi
+  `Rp1.500.000,00`, penarikan tidak valid ditolak, dan bunga tahunan
+  menghasilkan `Rp37.500,00`. Daftar gaji menampilkan total
+  `Rp27.700.000,00`.
 
-Berikut output dari `pertemuan03/php/main.php` aktual. Program ini menampilkan
-dua pegawai yang ada di daftar PHP dan menghasilkan total gaji
-`Rp12.800.000,00`.
+  ![Output Java setelah perubahan](screenshots/Output-Java-sesudah.png)
 
-![Output main.php PHP pertemuan 03](screenshots/Output-PHP-program.png)
+---
 
-Untuk membandingkan kelas `RekeningBank.php` sebelum dan sesudah, digunakan
-driver rekening khusus dari folder original. Driver tersebut terpisah dari
-`main.php` PHP aktif, yang saat ini hanya menguji daftar gaji.
+## PHP — `main.php`
 
-![Output pengujian RekeningBank PHP sebelum perubahan](screenshots/Output-PHP-sebelum.png)
+**Penjelasan Kode:**
 
-![Output pengujian RekeningBank PHP setelah perubahan](screenshots/Output-PHP-sesudah.png)
+> `pertemuan03/php/main.php` yang tersedia menguji daftar gaji pegawai; file
+> ini belum menjalankan operasi rekening. Screenshot program utama tetap
+> disertakan agar ruang lingkup program aktual jelas.
 
-### Kesimpulan
+**Bukti Eksekusi (Screenshot):**
 
-Implementasi Java dan PHP melengkapi pengelolaan rekening dengan konstanta,
-anggota statis, pembuatan objek yang konsisten, dan validasi transaksi.
-Pengujian Java melalui `Main.java` aktual memperlihatkan rekening terhitung
-dengan benar, setoran memperbarui saldo, transaksi yang tidak sesuai ditolak,
-dan bunga tahunan dihitung.
+- **Program utama PHP**:
+
+  ![main.php pertemuan 03](screenshots/PHP-Main-program.png)
+
+**Output Program:**
+
+- **After:** program utama PHP menampilkan dua pegawai dengan total gaji
+  `Rp12.800.000,00`.
+
+  ![Output main.php PHP pertemuan 03](screenshots/Output-PHP-program.png)
+
+- Pengujian rekening PHP memakai driver rekening terpisah. Pada source awal
+  named constructor masih menghasilkan TODO; setelah perubahan, pengujian
+  berhasil.
+
+  ![Output pengujian RekeningBank PHP sebelum perubahan](screenshots/Output-PHP-sebelum.png)
+
+  ![Output pengujian RekeningBank PHP setelah perubahan](screenshots/Output-PHP-sesudah.png)
+
+---
+
+## Hasil Pengujian
+
+- Constructor ringkas mendelegasikan inisialisasi ke constructor lengkap.
+- Jumlah rekening bertambah sesuai jumlah objek yang dibuat.
+- Setoran memperbarui saldo; transaksi yang tidak memenuhi aturan ditolak.
+- Bunga tahunan dihitung sesuai saldo dan tarif.
+- Output Java dan uji driver rekening PHP membuktikan perilaku rekening
+  sebelum dan sesudah implementasi.
+
+## Catatan dan Kesimpulan
+
+Konstanta dan anggota statis digunakan untuk nilai serta data yang berlaku
+untuk seluruh objek rekening. Delegasi constructor menjaga inisialisasi
+konsisten, sedangkan validasi memastikan operasi saldo mengikuti aturan.
+Program utama PHP yang tersedia menguji daftar gaji dan terpisah dari driver
+rekening PHP yang digunakan untuk menguji named constructor.

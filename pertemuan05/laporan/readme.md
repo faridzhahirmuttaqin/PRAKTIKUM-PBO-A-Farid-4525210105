@@ -1,140 +1,285 @@
-# Laporan Praktikum PBO — Pertemuan 05
+# LAPORAN PRAKTIKUM PEMROGRAMAN BERBASIS OBJEK
 
-## Polimorfisme
+| Informasi Praktikan | Keterangan |
+|---|---|
+| **Nama** | Farid Zhahir Muttaqin |
+| **NPM** | 4525210105 |
+| **Kelas** | A |
+| **Mata Kuliah** | Praktikum Pemrograman Berorientasi Objek (PBO) |
+| **Pertemuan** | 05 — Polimorfisme |
+| **Tanggal** | Tidak dicantumkan |
 
-### Identitas
+---
 
-- Nama: Farid Zhahir Muttaqin
-- NIM: 4525210105
-- Mata Kuliah: Praktikum Pemrograman Berorientasi Objek
-- Pertemuan: 05
+## Java — `BangunDatar.java`
 
-### Tujuan
+**Penjelasan Kode:**
 
-Pertemuan ini menerapkan polimorfisme pada kumpulan objek bangun datar.
-Kelas induk `BangunDatar` menetapkan kontrak luas dan keliling, lalu setiap
-bentuk menyediakan perhitungannya sendiri. Program utama memproses seluruh
-objek melalui tipe induk tanpa memilih rumus berdasarkan jenis bentuk.
+> **Before:** kelas induk belum menetapkan kontrak abstrak yang digunakan
+> bentuk-bentuk geometri untuk luas dan keliling.
+>
+> **After:** `BangunDatar` menjadi tipe induk abstrak yang menetapkan operasi
+> luas dan keliling. Program dapat memproses bentuk-bentuk berbeda melalui
+> tipe induk yang sama.
 
-### Kondisi sebelum perubahan
+**Bukti Eksekusi (Screenshot):**
 
-Source original menyediakan kelas `BangunDatar`, `Lingkaran`, dan `Persegi`.
-Implementasi luas dan keliling lingkaran serta persegi masih mengembalikan
-`0`, dan program utama baru menggunakan dua bentuk. Karena itu hasil
-perhitungan luas dan keliling keduanya masih nol.
+- **Before**:
 
-#### Source Java sebelum perubahan
+  ![BangunDatar.java sebelum perubahan](screenshots/Java-BangunDatar-sebelum.png)
 
-![Java BangunDatar sebelum perubahan](screenshots/Java-BangunDatar-sebelum.png)
+- **After**:
 
-![Java Lingkaran sebelum perubahan](screenshots/Java-Lingkaran-sebelum.png)
+  ![BangunDatar.java sesudah perubahan](screenshots/Java-BangunDatar-sesudah.png)
 
-![Java Persegi sebelum perubahan](screenshots/Java-Persegi-sebelum.png)
+---
 
-![Main Java sebelum perubahan](screenshots/Java-Main-sebelum.png)
+## Java — `Lingkaran.java`
 
-#### Source PHP sebelum perubahan
+**Penjelasan Kode:**
 
-Kelas bangun datar PHP dan implementasi bentuknya berada dalam satu file.
+> **Before:** method luas dan keliling masih menghasilkan `0`.
+>
+> **After:** kelas menghitung luas dengan rumus πr² dan keliling dengan 2πr.
+> Jari-jari harus positif dan finite.
 
-![PHP BangunDatar sebelum perubahan — bagian 1](screenshots/PHP-BangunDatar-sebelum-1.png)
+**Bukti Eksekusi (Screenshot):**
 
-![PHP BangunDatar sebelum perubahan — bagian 2](screenshots/PHP-BangunDatar-sebelum-2.png)
+- **Before**:
 
-![Main PHP sebelum perubahan](screenshots/PHP-Main-sebelum.png)
+  ![Lingkaran.java sebelum perubahan](screenshots/Java-Lingkaran-sebelum.png)
 
-#### Hasil running sebelum perubahan
+- **After**:
 
-Source Java dan PHP original berhasil dijalankan. Pada keduanya, luas dan
-keliling lingkaran serta persegi masih `0`, sehingga total luasnya juga `0`.
+  ![Lingkaran.java sesudah perubahan](screenshots/Java-Lingkaran-sesudah.png)
 
-![Output Java sebelum perubahan](screenshots/Output-Java-sebelum.png)
+---
 
-![Output PHP sebelum perubahan](screenshots/Output-PHP-sebelum.png)
+## Java — `Persegi.java`
 
-### Perubahan yang dilakukan
+**Penjelasan Kode:**
 
-Program polimorfik dilengkapi dengan:
+> **Before:** luas dan keliling persegi belum dihitung dan masih menghasilkan
+> nilai `0`.
+>
+> **After:** luas dihitung dari sisi kuadrat dan keliling dari empat kali sisi.
+> Nilai sisi divalidasi agar positif dan finite.
 
-1. Implementasi luas dan keliling lingkaran serta persegi, termasuk validasi
-   ukuran yang harus positif dan finite.
-2. Penambahan `Segitiga` dengan rumus Heron dan pemeriksaan ketaksamaan
-   segitiga.
-3. Penambahan `Trapesium` beserta perhitungan luas dan kelilingnya.
-4. Penambahan semua bentuk pada daftar program Java dan PHP.
-5. Penghitungan total luas dengan memanggil `luas()` dari setiap objek melalui
-   tipe induk `BangunDatar`.
+**Bukti Eksekusi (Screenshot):**
 
-#### Source Java setelah perubahan
+- **Before**:
 
-![Java BangunDatar setelah perubahan](screenshots/Java-BangunDatar-sesudah.png)
+  ![Persegi.java sebelum perubahan](screenshots/Java-Persegi-sebelum.png)
 
-![Java Lingkaran setelah perubahan](screenshots/Java-Lingkaran-sesudah.png)
+- **After**:
 
-![Java Persegi setelah perubahan](screenshots/Java-Persegi-sesudah.png)
+  ![Persegi.java sesudah perubahan](screenshots/Java-Persegi-sesudah.png)
 
-![Java Segitiga setelah perubahan](screenshots/Java-Segitiga-sesudah.png)
+---
 
-![Java Trapesium setelah perubahan](screenshots/Java-Trapesium-sesudah.png)
+## Java — `Segitiga.java`
 
-![Main Java setelah perubahan](screenshots/Java-Main-sesudah.png)
+**Penjelasan Kode:**
 
-### Latihan polimorfisme dan refaktor
+> Kelas ini ditambahkan pada hasil akhir. Luas dihitung menggunakan rumus
+> Heron, dan panjang sisi diperiksa menggunakan aturan ketaksamaan segitiga.
 
-Latihan `AntiPattern` menggunakan beberapa pemeriksaan jenis objek dalam satu
-method. Pada `AntiPatternRefaktor`, tiap record menerapkan kontrak `Bangun`,
-kemudian total luas dihitung dengan memanggil perilaku objek secara
-polimorfik.
+**Bukti Eksekusi (Screenshot):**
 
-![Java AntiPattern](screenshots/Java-AntiPattern.png)
+- **After**:
 
-![Java AntiPatternRefaktor](screenshots/Java-AntiPattern-Refaktor.png)
+  ![Segitiga.java sesudah perubahan](screenshots/Java-Segitiga-sesudah.png)
 
-Kedua versi demonstrasi menghitung total `184,94` untuk data lingkaran,
-persegi, dan segitiga yang dipakai latihan.
+---
 
-![Output Java AntiPattern](screenshots/Output-Java-AntiPattern.png)
+## Java — `Trapesium.java`
 
-![Output Java AntiPatternRefaktor](screenshots/Output-Java-AntiPattern-Refaktor.png)
+**Penjelasan Kode:**
 
-### Source PHP setelah perubahan
+> Kelas trapesium ditambahkan pada implementasi akhir dengan perhitungan luas
+> dan keliling berdasarkan ukuran sisi-sisinya.
 
-![PHP BangunDatar setelah perubahan — bagian 1](screenshots/PHP-BangunDatar-sesudah-1.png)
+**Bukti Eksekusi (Screenshot):**
 
-![PHP BangunDatar setelah perubahan — bagian 2](screenshots/PHP-BangunDatar-sesudah-2.png)
+- **After**:
 
-![PHP BangunDatar setelah perubahan — bagian 3](screenshots/PHP-BangunDatar-sesudah-3.png)
+  ![Trapesium.java sesudah perubahan](screenshots/Java-Trapesium-sesudah.png)
 
-![Main PHP setelah perubahan](screenshots/PHP-Main-sesudah.png)
+---
 
-### Latihan notifikasi PHP
+## Java — `Main.java`
 
-`Notifikasi` menjadi kelas induk abstrak dengan tiga implementasi konkret:
-`Email`, `SMS`, dan `WhatsApp`. Fungsi `kirimSemua()` memanggil perilaku
-masing-masing objek tanpa `instanceof`, `match`, atau `switch`.
+**Penjelasan Kode:**
 
-Source original menaruh pemanggilan uji dalam komentar, sehingga tidak
-menghasilkan output sebelum perubahan.
+> **Before:** program utama hanya menguji lingkaran dan persegi yang
+> implementasi luas serta kelilingnya masih nol.
+>
+> **After:** daftar bentuk mencakup lingkaran, persegi, segitiga, dan
+> trapesium. Perulangan memanggil perilaku luas melalui tipe induk
+> `BangunDatar`, tanpa memilih rumus menggunakan percabangan tipe.
 
-![PHP Notifikasi sebelum perubahan](screenshots/PHP-Notifikasi-sebelum.png)
+**Bukti Eksekusi (Screenshot):**
 
-![PHP Notifikasi setelah perubahan](screenshots/PHP-Notifikasi-sesudah.png)
+- **Before**:
 
-![Output PHP notifikasi setelah perubahan](screenshots/Output-PHP-Notifikasi.png)
+  ![Main.java sebelum perubahan](screenshots/Java-Main-sebelum.png)
 
-### Hasil running setelah perubahan
+- **After**:
 
-Versi Java dan PHP menampilkan empat bentuk: lingkaran, persegi, segitiga,
-dan trapesium. Total luas keduanya `202,94`. Output PHP menampilkan format
-desimal bertitik sesuai format bawaan program.
+  ![Main.java sesudah perubahan](screenshots/Java-Main-sesudah.png)
 
-![Output Java setelah perubahan](screenshots/Output-Java-sesudah.png)
+**Output Program:**
 
-![Output PHP setelah perubahan](screenshots/Output-PHP-sesudah.png)
+- **Before:** perhitungan luas serta keliling yang belum diimplementasikan
+  menghasilkan nol.
 
-### Kesimpulan
+  ![Output Java sebelum perubahan](screenshots/Output-Java-sebelum.png)
 
-Polimorfisme memungkinkan daftar bangun datar diproses melalui kelas induk,
-sementara setiap objek menjalankan implementasi luas dan keliling miliknya.
-Penambahan segitiga dan trapesium tidak memerlukan cabang rumus baru pada
-perulangan utama.
+- **After:** keempat bentuk ditampilkan dan total luas program adalah
+  `202,94`.
+
+  ![Output Java setelah perubahan](screenshots/Output-Java-sesudah.png)
+
+---
+
+## Java — `AntiPattern.java` dan `AntiPatternRefaktor.java`
+
+**Penjelasan Kode:**
+
+> `AntiPattern.java` menunjukkan pendekatan yang memeriksa jenis objek untuk
+> memilih perhitungan. Pada `AntiPatternRefaktor.java`, objek menerapkan
+> kontrak `Bangun` dan luas dihitung dengan memanggil perilaku polimorfik
+> masing-masing objek. Kedua contoh latihan memakai data yang sama dan
+> menghasilkan total `184,94`.
+
+**Bukti Eksekusi (Screenshot):**
+
+- **Before** _(contoh anti-pattern)_:
+
+  ![AntiPattern.java](screenshots/Java-AntiPattern.png)
+
+- **After** _(hasil refaktor polimorfik)_:
+
+  ![AntiPatternRefaktor.java](screenshots/Java-AntiPattern-Refaktor.png)
+
+**Output Program:**
+
+- **Before**:
+
+  ![Output AntiPattern](screenshots/Output-Java-AntiPattern.png)
+
+- **After**:
+
+  ![Output AntiPatternRefaktor](screenshots/Output-Java-AntiPattern-Refaktor.png)
+
+---
+
+## PHP — `BangunDatar.php`
+
+**Penjelasan Kode:**
+
+> **Before:** kelas induk beserta lingkaran dan persegi berada dalam satu file.
+> Perhitungan bentuk masih mengembalikan nol.
+>
+> **After:** kelas induk abstrak menetapkan perilaku polimorfik. Lingkaran,
+> persegi, segitiga, dan trapesium menghitung luas serta keliling masing-masing
+> dan memvalidasi ukuran yang diperlukan.
+
+**Bukti Eksekusi (Screenshot):**
+
+- **Before**:
+
+  ![BangunDatar.php sebelum perubahan — bagian 1](screenshots/PHP-BangunDatar-sebelum-1.png)
+
+  ![BangunDatar.php sebelum perubahan — bagian 2](screenshots/PHP-BangunDatar-sebelum-2.png)
+
+- **After**:
+
+  ![BangunDatar.php sesudah perubahan — bagian 1](screenshots/PHP-BangunDatar-sesudah-1.png)
+
+  ![BangunDatar.php sesudah perubahan — bagian 2](screenshots/PHP-BangunDatar-sesudah-2.png)
+
+  ![BangunDatar.php sesudah perubahan — bagian 3](screenshots/PHP-BangunDatar-sesudah-3.png)
+
+---
+
+## PHP — `main.php`
+
+**Penjelasan Kode:**
+
+> **Before:** program utama menggunakan lingkaran dan persegi, tetapi
+> perhitungan luas dan kelilingnya belum selesai.
+>
+> **After:** seluruh bentuk diproses melalui kontrak induk dan luasnya
+> dijumlahkan tanpa pemilihan rumus berdasarkan tipe. Output PHP menampilkan
+> format desimal bawaan dan total luas `202,94`.
+
+**Bukti Eksekusi (Screenshot):**
+
+- **Before**:
+
+  ![main.php sebelum perubahan](screenshots/PHP-Main-sebelum.png)
+
+- **After**:
+
+  ![main.php sesudah perubahan](screenshots/PHP-Main-sesudah.png)
+
+**Output Program:**
+
+- **Before**:
+
+  ![Output PHP sebelum perubahan](screenshots/Output-PHP-sebelum.png)
+
+- **After**:
+
+  ![Output PHP setelah perubahan](screenshots/Output-PHP-sesudah.png)
+
+---
+
+## PHP — `notifikasi.php`
+
+**Penjelasan Kode:**
+
+> **Before:** pemanggilan uji notifikasi berada dalam komentar, sehingga
+> belum ada output pengiriman.
+>
+> **After:** `Notifikasi` menjadi kelas induk abstrak dengan implementasi
+> konkret `Email`, `SMS`, dan `WhatsApp`. Fungsi `kirimSemua()` memanggil
+> perilaku setiap objek tanpa `instanceof`, `match`, atau `switch`.
+
+**Bukti Eksekusi (Screenshot):**
+
+- **Before**:
+
+  ![notifikasi.php sebelum perubahan](screenshots/PHP-Notifikasi-sebelum.png)
+
+- **After**:
+
+  ![notifikasi.php sesudah perubahan](screenshots/PHP-Notifikasi-sesudah.png)
+
+**Output Program:**
+
+- **After**:
+
+  ![Output latihan notifikasi PHP](screenshots/Output-PHP-Notifikasi.png)
+
+---
+
+## Hasil Pengujian
+
+- Luas dan keliling Java serta PHP terhitung untuk bentuk yang diimplementasi.
+- Nilai ukuran yang tidak valid ditolak, termasuk sisi segitiga yang tidak
+  memenuhi ketaksamaan segitiga.
+- Program utama memproses empat bentuk melalui abstraksi yang sama dan
+  menghasilkan total luas `202,94`.
+- Contoh anti-pattern dan refaktor menghasilkan total `184,94` untuk data
+  latihan yang sama.
+- Latihan notifikasi PHP mengirimkan pesan melalui implementasi Email, SMS,
+  dan WhatsApp.
+
+## Catatan dan Kesimpulan
+
+Polimorfisme memungkinkan program memproses objek dari kelas turunan melalui
+kontrak atau kelas induk, tanpa menyebarkan percabangan berdasarkan jenis
+objek. Penambahan bentuk baru cukup menyediakan implementasi perilaku luas
+dan keliling; perulangan utama tidak perlu diubah untuk memilih rumus.
