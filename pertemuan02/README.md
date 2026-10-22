@@ -11,7 +11,7 @@
 
 ### Tujuan
 
-Pertemuanini membahas penerapan enkapsulasi pada kelas `Mahasiswa` di Java
+Pertemuan ini membahas penerapan enkapsulasi pada kelas `Mahasiswa` di Java
 dan PHP. Objek mahasiswa menyimpan identitas dan nilai, menjaga data agar
 memenuhi aturan, menghitung nilai akhir, serta menentukan huruf mutu.
 
