@@ -1,118 +1,161 @@
-# Laporan Praktikum PBO — Pertemuan 02
+# LAPORAN PRAKTIKUM PEMROGRAMAN BERBASIS OBJEK
 
-## Kelas dan Objek: Enkapsulasi
+| Informasi Praktikan | Keterangan |
+|---|---|
+| **Nama** | Farid Zhahir Muttaqin |
+| **NPM** | 4525210105 |
+| **Kelas** | A |
+| **Mata Kuliah** | Praktikum Pemrograman Berorientasi Objek (PBO) |
+| **Pertemuan** | 02 — Kelas dan Objek: Enkapsulasi |
+| **Tanggal** | Tidak dicantumkan |
 
-### Identitas
+---
 
-- Nama: Farid Zhahir Muttaqin
-- NIM: 4525210105
-- Mata Kuliah: Praktikum Pemrograman Berorientasi Objek
-- Pertemuan: 05
+## Java — `Mahasiswa.java`
 
-### Tujuan
+**Penjelasan Kode:**
 
+<<<<<<< HEAD
 Pertemuan ini membahas penerapan enkapsulasi pada kelas `Mahasiswa` di Java
 dan PHP. Objek mahasiswa menyimpan identitas dan nilai, menjaga data agar
 memenuhi aturan, menghitung nilai akhir, serta menentukan huruf mutu.
+=======
+> **Before:** implementasi kelas masih memiliki TODO. Nilai akhir belum
+> dihitung, huruf mutu belum ditentukan, dan data mahasiswa maupun nilai belum
+> divalidasi.
+>
+> **After:** konstruktor memvalidasi NIM dan rentang nilai tugas, UTS, serta
+> UAS. Nilai akhir dihitung dengan bobot tugas 30%, UTS 30%, dan UAS 40%.
+> Huruf mutu ditentukan dari nilai akhir, dan getter menyediakan akses baca
+> tanpa setter untuk NIM.
+>>>>>>> 47a1aae7b096dc9de1d4371100cf1c96604db69d
 
-Nilai akhir dihitung dengan bobot:
+**Bukti Eksekusi (Screenshot):**
 
-- Tugas: 30%
-- UTS: 30%
-- UAS: 40%
+- **Before** _(source awal)_:
 
-### Kondisi sebelum perubahan
+  ![Mahasiswa.java sebelum perubahan — bagian 1](screenshots/Java-Mahasiswa-sebelum-1.png)
 
-Implementasi awal masih berisi TODO. Nilai akhir belum dihitung, huruf mutu
-belum ditentukan, dan validasi data belum diterapkan. Karena itu, program Java
-menampilkan nilai `0,00`, mutu `?`, serta pesan masalah ketika nilai di luar
-rentang atau NIM kosong dimasukkan.
+  ![Mahasiswa.java sebelum perubahan — bagian 2](screenshots/Java-Mahasiswa-sebelum-2.png)
 
-#### Screenshot kode Java sebelum perubahan
+  ![Mahasiswa.java sebelum perubahan — bagian 3](screenshots/Java-Mahasiswa-sebelum-3.png)
 
-![Java sebelum perubahan — bagian 1](screenshots/Java-Mahasiswa-sebelum-1.png)
+- **After** _(source setelah perubahan)_:
 
-![Java sebelum perubahan — bagian 2](screenshots/Java-Mahasiswa-sebelum-2.png)
+  ![Mahasiswa.java sesudah perubahan — bagian 1](screenshots/Java-Mahasiswa-sesudah-1.png)
 
-![Java sebelum perubahan — bagian 3](screenshots/Java-Mahasiswa-sebelum-3.png)
+  ![Mahasiswa.java sesudah perubahan — bagian 2](screenshots/Java-Mahasiswa-sesudah-2.png)
 
-#### Screenshot kode PHP sebelum perubahan
+  ![Mahasiswa.java sesudah perubahan — bagian 3](screenshots/Java-Mahasiswa-sesudah-3.png)
 
-![PHP sebelum perubahan — bagian 1](screenshots/PHP-Mahasiswa-sebelum-1.png)
+---
 
-![PHP sebelum perubahan — bagian 2](screenshots/PHP-Mahasiswa-sebelum-2.png)
+## PHP — `Mahasiswa.php`
 
-#### Hasil running Java sebelum perubahan
+**Penjelasan Kode:**
 
-![Output Java sebelum perubahan](screenshots/Output-sebelum.png)
+> **Before:** kelas PHP belum melengkapi perhitungan nilai dan validasi yang
+> sama seperti implementasi Java.
+>
+> **After:** kelas menghitung nilai akhir berbobot, menentukan huruf mutu,
+> serta memvalidasi identitas dan nilai agar data tidak valid ditolak.
+> Source awal menggunakan typed class constants yang memerlukan PHP 8.3 atau
+> lebih baru; pada PHP 8.2.12 versi awal tidak berhasil dijalankan.
 
-Versi awal PHP belum berhasil dijalankan pada PHP 8.2.12. Source original
-menggunakan typed class constants yang memerlukan PHP 8.3 atau lebih baru.
+**Bukti Eksekusi (Screenshot):**
 
-![Output PHP sebelum perubahan](screenshots/Output-PHP-sebelum.png)
+- **Before** _(source awal)_:
 
-### Perubahan yang dilakukan
+  ![Mahasiswa.php sebelum perubahan — bagian 1](screenshots/PHP-Mahasiswa-sebelum-1.png)
 
-Pada kelas `Mahasiswa`, TODO dilengkapi dengan:
+  ![Mahasiswa.php sebelum perubahan — bagian 2](screenshots/PHP-Mahasiswa-sebelum-2.png)
 
-1. Validasi NIM agar tidak kosong.
-2. Validasi nilai tugas, UTS, dan UAS supaya berada di rentang 0–100.
-3. Perhitungan nilai akhir menggunakan bobot yang telah ditentukan.
-4. Penentuan huruf mutu: A untuk nilai minimal 80, B minimal 70, C minimal 60,
-   D minimal 50, dan E untuk nilai di bawah 50.
-5. Getter untuk data yang perlu dibaca tanpa menyediakan setter untuk NIM.
+- **After** _(source setelah perubahan)_:
 
-`Main.java` tetap menjadi program uji. Kelas `Mahasiswa` tidak berjalan
-sendiri; hasilnya ditampilkan oleh program utama yang membuat objek mahasiswa.
+  ![Mahasiswa.php sesudah perubahan — bagian 1](screenshots/PHP-Mahasiswa-sesudah-1.png)
 
-#### Screenshot kode Java setelah perubahan
+  ![Mahasiswa.php sesudah perubahan — bagian 2](screenshots/PHP-Mahasiswa-sesudah-2.png)
 
-![Java setelah perubahan — bagian 1](screenshots/Java-Mahasiswa-sesudah-1.png)
+  ![Mahasiswa.php sesudah perubahan — bagian 3](screenshots/PHP-Mahasiswa-sesudah-3.png)
 
-![Java setelah perubahan — bagian 2](screenshots/Java-Mahasiswa-sesudah-2.png)
+**Output Program:**
 
-![Java setelah perubahan — bagian 3](screenshots/Java-Mahasiswa-sesudah-3.png)
+- **Before**:
 
-Kode program Java sederhana:
+  ![Output PHP sebelum perubahan](screenshots/Output-PHP-sebelum.png)
 
-![Kode App.java](screenshots/Java-App-program.png)
+- **After**:
 
-#### Screenshot kode PHP setelah perubahan
+  ![Output PHP sesudah perubahan](screenshots/Output-PHP-sesudah.png)
 
-![PHP setelah perubahan — bagian 1](screenshots/PHP-Mahasiswa-sesudah-1.png)
+---
 
-![PHP setelah perubahan — bagian 2](screenshots/PHP-Mahasiswa-sesudah-2.png)
+## Java — `App.java` dan program utama
 
-![PHP setelah perubahan — bagian 3](screenshots/PHP-Mahasiswa-sesudah-3.png)
+**Penjelasan Kode:**
 
-Program utama PHP:
+> `Mahasiswa` merupakan kelas model, bukan program mandiri. `App.java` dan
+> `Main.java` digunakan sebagai program penguji yang membuat objek mahasiswa
+> dan menampilkan hasil perilakunya. Screenshot kode yang tersedia
+> memperlihatkan `App.java`.
 
-![Kode main.php](screenshots/PHP-Main-program.png)
+**Bukti Eksekusi (Screenshot):**
 
-### Hasil running setelah perubahan
+- **After** _(program penguji)_:
 
-#### Java
+  ![Kode App.java](screenshots/Java-App-program.png)
 
-Program Java menghitung nilai akhir dan huruf mutu dengan benar. Program juga
-menolak nilai 150 dan NIM kosong dengan `IllegalArgumentException`.
+**Output Program:**
 
-![Output Java setelah perubahan](screenshots/Output-sesudah.png)
+- **Before**:
 
-Sebagai program Java terpisah, `App.java` menampilkan output berikut:
+  ![Output Java sebelum perubahan](screenshots/Output-sebelum.png)
 
-![Output App.java](screenshots/Output-Java-App.png)
+- **After**:
 
-#### PHP
+  ![Output Java sesudah perubahan](screenshots/Output-sesudah.png)
 
-Setelah kelas dan program utama PHP dilengkapi, program dapat dijalankan.
-Hasil perhitungan serta penolakan input tidak valid sesuai dengan implementasi
-Java.
+  ![Output App.java](screenshots/Output-Java-App.png)
 
-![Output PHP setelah perubahan](screenshots/Output-PHP-sesudah.png)
+---
 
-### Kesimpulan
+## PHP — `main.php`
 
-Setelah perubahan, kelas `Mahasiswa` menerapkan enkapsulasi dengan menjaga
-validitas data melalui konstruktor, menghitung nilai akhir sesuai bobot, dan
-menentukan huruf mutu. Hasil running Java dan PHP menunjukkan data valid
-diproses, sedangkan data yang melanggar aturan ditolak.
+**Penjelasan Kode:**
+
+> `main.php` membuat dan menguji objek dari `Mahasiswa.php`. Sesudah kelas
+> model dilengkapi, program utama menampilkan hasil perhitungan nilai dan
+> memastikan input yang tidak sesuai aturan ditolak.
+
+**Bukti Eksekusi (Screenshot):**
+
+- **After** _(program utama)_:
+
+  ![Kode main.php](screenshots/PHP-Main-program.png)
+
+**Output Program:**
+
+- **Before**:
+
+  ![Output PHP sebelum perubahan](screenshots/Output-PHP-sebelum.png)
+
+- **After**:
+
+  ![Output PHP sesudah perubahan](screenshots/Output-PHP-sesudah.png)
+
+---
+
+## Hasil Pengujian
+
+- Nilai akhir dihitung menggunakan bobot tugas 30%, UTS 30%, dan UAS 40%.
+- Huruf mutu mengikuti batas A (minimal 80), B (70), C (60), D (50), dan E
+  (di bawah 50).
+- Nilai di luar rentang 0–100 dan NIM kosong ditolak.
+- Output Java dan PHP setelah perubahan memperlihatkan hasil perhitungan dan
+  penanganan data tidak valid.
+
+## Catatan dan Kesimpulan
+
+Kelas `Mahasiswa` menerapkan enkapsulasi dengan menjaga validitas data,
+menghitung nilai akhir sesuai bobot, dan menentukan huruf mutu. Program utama
+berfungsi sebagai driver untuk membuat objek dan menampilkan hasilnya.
