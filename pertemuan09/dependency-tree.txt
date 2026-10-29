@@ -1,0 +1,2 @@
+id.ac.univpancasila.perpustakaan:perpustakaan:jar:1.0.0
+\- org.apache.commons:commons-lang3:jar:3.17.0:compile
