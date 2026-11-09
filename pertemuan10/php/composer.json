@@ -1,0 +1,16 @@
+{
+    "name": "univpancasila/perpustakaan-sesi10",
+    "description": "Praktikum PBO pertemuan 10 - exception handling dan pemrograman defensif",
+    "type": "project",
+    "require": {
+        "php": "^8.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Perpustakaan\\": "src/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
