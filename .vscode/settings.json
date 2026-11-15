@@ -4,5 +4,16 @@
         "pertemuan06",
         "ori prak pertemuan/pertemuan02",
         "pertemuan02/src/java"
-    ]
+    ],
+    "java.configuration.runtimes": [
+        {
+            "name": "JavaSE-25",
+            "path": "C:\\Users\\c8e34\\.jdk\\temurin-25.0.5",
+            "default": true
+        }
+    ],
+    "terminal.integrated.env.windows": {
+        "JAVA_HOME": "C:\\Users\\c8e34\\.jdk\\temurin-25.0.5",
+        "PATH": "C:\\Users\\c8e34\\.jdk\\temurin-25.0.5\\bin;${env:PATH}"
+    }
 }
